@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{%block head%}
+{%endblock%}
+
+{%block body%}
+<div class="container" >
+<h1 style='text-align: center'>CarScan App</h1>
+
+<div class="p-3 mb-2 bg-secondary text-white" style="text-align: center" >
+  <form class="photo" action="/" method='POST' enctype='multipart/form-data'>
+    <input type='file' name='photo' value="" id="photo">
+    <br>
+   <input type="submit" class="btn btn-dark btn-lg" name="" value="Scan">
+
+  </form>
+<hr>
+
+<img src="static/img/{{filename}}" alt="where the hell is filename" width=400,height=400>
+<br>
+<!-- <h1>The probability of damage is {{answer}} %</h1> -->
+
+{% if answer > 50 %}
+  <h1>Damages found (Probabiity {{answer}}%)</h1>
+{%elif answer < 50 %}
+  <h1>No damages found (Probabiity {{answer}}%)</h1>
+{%else%}
+<h1>Check damages of the car</h1>
+  {%endif%}
+
+</div>
+
+</div>
+
+{%endblock%}
